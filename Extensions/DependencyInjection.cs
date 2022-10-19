@@ -1,12 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cloud.Middleware.Extensions
 {
-    public class DependencyInjection
+    //Adding DI for making it available through nuget package, later plug and play!
+    public static class DependencyInjection
     {
-        
+        public static IServiceCollection AddMiddleware(this IServiceCollection services)
+        {
+            services.AddHttpContextAccessor();
+            return services;
+        }
     }
 }
